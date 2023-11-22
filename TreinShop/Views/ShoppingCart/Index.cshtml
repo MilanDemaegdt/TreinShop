@@ -1,0 +1,75 @@
+﻿@model TreinShop.ViewModels.ShoppingCartVM
+
+<h1>Shopping Cart</h1>
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+
+@if (Model != null)
+{
+    <form asp-action="Index">
+        <table>
+            <tr>
+                <th>Van</th>
+                <th>Naar</th>
+                <th>Vertrek</th>
+                <th>Aankomst</th>
+                <th>Prijs</th>
+            </tr>
+            @{
+                float total = 0;
+                string cartClass = ViewBag.Class;
+        }
+        @for (var i = 0; i<Model.Cart.Count; i++)
+        {
+        <tr class="@cartClass">
+            @Html.HiddenFor(m => Model.Cart[i].TreinID)
+            <td>
+                <input asp-for="@Model.Cart[i].VertrekNaam" readonly="readonly"
+                       class="form-control" />
+            </td>
+            <td>
+                <input asp-for="@Model.Cart[i].AankomstNaam" readonly="readonly"
+                       class="form-control" />
+            </td>
+            <td>
+                <input asp-for="@Model.Cart[i].Tijd" readonly="readonly"
+                       class="form-control" />
+            </td>
+            <td>
+                <input asp-for="@Model.Cart[i].ReisTijd" readonly="readonly"
+                       class="form-control" />
+            </td>
+            <td>
+                @{
+        var prijs = Model.Cart[i].Prijs;
+        var euroPrijs = $"€ {prijs.ToString("0.00")}";
+                }
+                <input type="text" readonly="readonly" class="form-control" value="@euroPrijs" />
+                @Html.HiddenFor(m => Model.Cart[i].Prijs)
+                @{
+                        var subtotaal = Model.Cart[i].Prijs;
+        total += subtotaal;
+                }
+            </td>
+        </tr>
+        }
+        <tr>
+            <td>
+                <a asp-controller="ShoppingCart" asp-action="Delete">Remove Ticket</a>
+
+            </td>
+        </tr>
+    </table><br>
+    <div id="cart-total">
+        Total: € @total
+    </div>
+    <br>
+        <input id="submit" type="submit" value="Checkout" class="btn btn-default button-style" />
+</form>
+}
+else
+{
+    @Html.Raw("Your shoppingcart is empty at the moment")
+}

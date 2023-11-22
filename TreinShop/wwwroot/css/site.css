@@ -1,0 +1,59 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+header {
+    background-color: #fff;
+}
+
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+.test {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.button-style {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+main {
+    margin: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    font-size: 20px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}

@@ -1,0 +1,17 @@
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Repositories.deps.json
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Repositories.runtimeconfig.json
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Repositories.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Repositories.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Domain.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\bin\Release\net6.0\TreinShop.Domain.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.csproj.AssemblyReference.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.AssemblyInfoInputs.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.AssemblyInfo.cs
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.csproj.CopyComplete
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\refint\TreinShop.Repositories.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\TreinShop.Repositories.genruntimeconfig.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Repositories\obj\Release\net6.0\ref\TreinShop.Repositories.dll

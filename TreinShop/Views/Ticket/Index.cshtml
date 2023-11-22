@@ -1,0 +1,132 @@
+﻿@model IEnumerable<TreinShop.ViewModels.TicketVM>
+
+@{
+    ViewData["Title"] = "My Tickets";
+}
+
+<h1>My Tickets</h1>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <span style="color:red;">@ViewBag.ErrorMessage</span>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.vertrek)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bestemming)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateVertrek)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateAankomst)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Class)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.vertrek)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bestemming)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateVertrek)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAankomst)
+                        </td>
+                        <td>
+                            @if (item.Status == "Completed")
+                            {
+                                <span style="color:red">@Html.DisplayFor(modelItem => item.Status)</span>
+                            }
+                            else if (item.Status == "In use")
+                            {
+                                <span style="color:#FFC107">@Html.DisplayFor(modelItem => item.Status)</span>
+                            }
+                            else if (item.Status == "Available")
+                            {
+                                <span style="color:green">@Html.DisplayFor(modelItem => item.Status)</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Class)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { ticketId = item.TicketId }, new { @class = "details-link", data_ticketId = item.TicketId }) |
+                            @Html.ActionLink("Cancel", "Cancel", new { ticketId = item.TicketId }, new { @class = "cancel-link", data_ticketId = item.TicketId }) |
+                            @Html.ActionLink("Book Hotel", "BookHotel", new { bestemming = item.bestemming }, new { @class = "book-link", data_bestemming = item.bestemming })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @Html.Raw("You don't have any tickets yet!")
+        <a asp-controller="Booking" asp-action="GetTrainsByStations">Continue</a>
+    }
+}
+else
+{
+    @Html.Raw("Log in to see your tickets!")
+}
+
+
+
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".cancel-link").click(function (e) {
+                e.preventDefault(); // prevent the link from navigating
+                var ticketData = $(this).data();
+                console.log(ticketData);
+                var ticketId = ticketData['ticketid'];
+                if (confirm("Are you sure you want to cancel this ticket?")) {
+                    // if the user clicks "OK", navigate to the Cancel action
+                    window.location.href = "/Ticket/Cancel?ticketId=" + ticketId;
+                    console.log(ticketId);
+                }
+            });
+
+            $(".details-link").click(function (e) {
+                e.preventDefault(); // prevent the link from navigating
+                var ticketData = $(this).data();
+                console.log(ticketData);
+                var ticketId = ticketData['ticketid'];
+                window.location.href = "/Ticket/Details?ticketId=" + ticketId;
+            });
+
+            $(".book-link").click(function (e) {
+                e.preventDefault(); // prevent the link from navigating
+                var ticketData = $(this).data();
+                console.log(ticketData);
+                var bestemming = ticketData['bestemming'];
+                window.location.href = "/Ticket/BookHotel?bestemming=" + bestemming;
+            });
+        });
+    </script>
+}

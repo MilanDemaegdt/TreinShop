@@ -1,0 +1,192 @@
+﻿@model IEnumerable<TreinShop.ViewModels.TreinVM>
+
+@{
+    ViewData["Title"] = "GetTrainsByStations";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Ticket</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    @if (await ViewBag.banner != "0") { 
+        <header>
+            <img src="~/images/@(await ViewBag.banner).png" alt="@await ViewBag.banner">
+            
+        </header>
+    }
+    <br />
+    
+    <h1>Buy Ticket</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="GetTrainsByStations">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group row">
+                            <label for="vertrekId" class="col-md-2 col-form-label">Departure:</label>
+                            <div class="col-md-10">
+                                <select name="vertrekId" id="vertrekId" asp-items="@ViewBag.lstStation" class="form-control">
+                                    <option>Please select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="bestemmingId" class="col-md-2 col-form-label">Destination:</label>
+                            <div class="col-md-10">
+                                <select name="bestemmingId" id="bestemmingId" asp-items="@ViewBag.lstStation2" class="form-control">
+                                    <option>Please select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dateTime" class="col-md-2 col-form-label">When:</label>
+                            <div class="col-md-10">
+                                <input type="datetime-local" id="dateTime" name="dateTime" min="" step="any" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="business" class="control-label">Business class:</label>
+                            <input type="checkbox" id="business" name="business" value="true" />
+                        </div>
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <span style="color:red;">@ViewBag.ErrorMessage</span>
+                        }
+                        <br />
+                        <div class="form-group">
+                            <input style="display:''" name="submit" type="submit" value="Search" class="btn btn-default button-style" id="searchButton" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+    @if (Model != null) {
+
+        @if (ViewBag != null)
+        {
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VertrekNaam)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AankomstNaam)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tijd)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReisTijd)
+                        </th>
+                        <th>
+                            Class
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="NoTrains">
+                    </tr>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VertrekNaam)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AankomstNaam)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tijd)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReisTijd)
+                                </td>
+                                <td>
+                                    @if (ViewBag.business)
+                                    {
+                                        @Html.Raw("Business")
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw("Economic")
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        <a id="add-to-cart-button">
+            <button class="btn btn-default button-style" type="button">
+            <i></i> Add to Cart
+        </button>
+            
+    </a>
+        @if (ViewBag.ErrorMessage2 != null)
+        {
+            <span style="color:red;">@ViewBag.ErrorMessage2</span>
+        }
+}
+        </div>
+    </div>
+<script>
+    var today = new Date();
+    today.setDate(today.getDate() + 14);
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
+    var time = today.getHours().toString().padStart(2, '0') + ":" + today.getMinutes().toString().padStart(2, '0') + ":" + today.getSeconds().toString().padStart(2, '0');
+    var dateTime = date + 'T' + time;
+    var dateTimePicker = document.getElementById("dateTime");
+    var business = document.getElementById("business");
+    dateTimePicker.min = dateTime;
+
+    var pTag = document.getElementById("NoTrains");
+    pTag.textContent = "";
+    const button = document.getElementById("add-to-cart-button");
+    
+    $(document).ready(function () {
+        var test3 = "@ViewBag.dateTime"
+        if(test3 != "0") {
+                dateTimePicker.value = "@(ViewBag.dateTime.ToString("yyyy-MM-ddTHH:mm:ss"))";
+        }
+
+        const treinList = @ViewBag.treinList;
+        const fromStation = @ViewBag.vertrek;
+        const toStation = @ViewBag.bestemming;
+
+        var selectElement = document.getElementById("vertrekId");
+        var selectElement2 = document.getElementById("bestemmingId");
+        var selectedOptionIndex = selectElement.selectedIndex;
+        var selectedOptionIndex2 = selectElement2.selectedIndex;
+        var selectedOptionText = selectElement.options[selectedOptionIndex].text;
+        var selectedOptionText2 = selectElement2.options[selectedOptionIndex2].text;
+        if(treinList == 0 && fromStation != 0 && toStation != 0){
+                pTag.textContent = "No trains found from " + selectedOptionText + " to " + selectedOptionText2 + " on " + test3;
+        }
+        if (fromStation == 0 && toStation == 0 || treinList == 0) {
+            button.style.display = "none";
+        } 
+        else {
+            button.style.display = "";
+        }
+        const url = "@Url.Action("Select", new { vertrekID = "__vertrekID__", aankomstID = "__aankomstID__", timeSpan = "__timeSpan__", business = "__business__"})";
+        const newUrl = url.replace("__vertrekID__", fromStation).replace("__aankomstID__", toStation).replace(/&amp;/g, "&").replace("__timeSpan__", dateTimePicker.value).replace("__business__", "@ViewBag.business");
+        button.href = newUrl; 
+        console.log(business.checked)
+
+    });
+</script>
+</body>
+</html>

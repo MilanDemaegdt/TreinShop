@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TreinShop.ViewModels.TreinVM>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VertrekNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AankomstNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tijd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReisTijd)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VertrekNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AankomstNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tijd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReisTijd)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

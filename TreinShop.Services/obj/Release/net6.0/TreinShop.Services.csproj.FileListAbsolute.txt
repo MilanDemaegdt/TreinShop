@@ -1,0 +1,17 @@
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Services.deps.json
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Services.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Services.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Domain.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Repositories.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Domain.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\bin\Release\net6.0\TreinShop.Repositories.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.csproj.AssemblyReference.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.AssemblyInfoInputs.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.AssemblyInfo.cs
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.csproj.CoreCompileInputs.cache
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.csproj.CopyComplete
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\refint\TreinShop.Services.dll
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\TreinShop.Services.pdb
+C:\Users\milan\OneDrive\Bureaublad\TreinShop\TreinShop.Services\obj\Release\net6.0\ref\TreinShop.Services.dll

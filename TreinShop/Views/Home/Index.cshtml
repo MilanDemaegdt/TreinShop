@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+@using Microsoft.AspNetCore.Mvc.Localization
+        @*The IViewLocalizer service provides localized strings for a view. The ViewLocalizer class implements this interface and finds the resource location from the view file path.*@
+        @inject IViewLocalizer Localizer
+        @{
+        ViewData["Title"] = "Home Page";
+        }
+<html>
+<head>
+    <title>TGVExpress</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+@section Header{
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TGVExpress</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Booking" asp-action="GetTrainsByStations">Buy Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Ticket" asp-action="Index">My Tickets</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Index"><img src="~/Images/shopping-cart.png" /></a>
+                    </li>
+                </ul>
+            </div>
+            @await Html.PartialAsync("_SelectCulture")
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+}
+    <body>
+        <header>
+            <img src="images/trein.png" alt="TGV Train">
+        </header>
+        <main>
+            <div class="text-center">
+                <h1 class="display-4">@Localizer["Welcome"].Value</h1>
+                <h5>@Localizer["Beyond"].Value</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Bij TGVExpress streven we ernaar om uw reiservaring te verbeteren door middel van snelheid, gemak en comfort. Als toonaangevende e-commerce website voor hogesnelheidstreinen, bieden wij u de mogelijkheid om moeiteloos tickets te bestellen voor TGV-reizen tussen zeven prachtige Europese steden.
+                        <br /><br />
+                        Met slechts een paar klikken kunt u uw gewenste bestemming kiezen uit ons uitgebreide aanbod. Van het bruisende stadsleven in Parijs tot de historische pracht van Rome, onze TGV's verbinden u met enkele van Europa's meest iconische steden. Bovendien bieden we u de mogelijkheid om de betoverende bezienswaardigheden van Brussel, Londen, Amsterdam, Berlijn en Moskou te verkennen.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="~/images/people.jpg" alt="PeopleSittingTrain" class="img-fluid" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="photo2.jpg" alt="Photo 2" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        Bij TGVExpress geloven we in het leveren van uitstekende service en kwaliteit. Ons team van deskundige medewerkers staat altijd klaar om u te helpen bij al uw vragen en zorgen. We werken samen met gerenommeerde spoorwegmaatschappijen om ervoor te zorgen dat u geniet van een veilige en comfortabele reiservaring, waarbij u kunt vertrouwen op punctualiteit en efficiëntie.
+                        <br /><br />
+                        Aarzel niet langer en begin uw reisavontuur met TGVExpress. Ontdek de snelheid, het gemak en het comfort van hogesnelheidstreinen terwijl u de beste bestemmingen in Europa verkent. We kijken ernaar uit om u aan boord te verwelkomen en uw reis onvergetelijk te maken.
+                        <br /><br />
+                        Boek vandaag nog uw tickets bij TGVExpress en laat uw reis beginnen!
+                    </p>
+                </div>
+            </div>
+
+        </main>
+    </body>
+    </html>
+</html>
+
+
+
+
